@@ -115,6 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="D:\graph-homework\working\FileReader.h" />
+    <ClInclude Include="D:\graph-homework\working\Graph.h" />
+    <ClInclude Include="D:\graph-homework\working\ModifiedBFS.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\graph-homework\working\Source.cpp" />
+    <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="ModifiedBFS.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
