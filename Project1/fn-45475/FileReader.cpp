@@ -1,17 +1,13 @@
-#include <iostream>
-#include <fstream>
-
 #include "FileReader.h"
 
-
-bool Read(const std::string &name, Graph &graph)
+void Read(const std::string &name, Graph &graph)
 {
 	std::ifstream read(name);
 
 	if (!read.good())
 	{
 		std::cerr << "Could not open file.\n";
-		return false;
+		return;
 	}
 
 	std::string begin;
@@ -62,7 +58,6 @@ bool Read(const std::string &name, Graph &graph)
 		}
 	}
 	read.close();
-	return true;
 }
 
 

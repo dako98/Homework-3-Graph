@@ -1,9 +1,23 @@
+#ifndef _MODIFIED_BFS_
+#define _MODIFIED_BFS_
+
+
+#include <iostream>
+#include <string>
+#include <vector>
 #include <queue>
+#include <stack>
+#include <fstream>
 
-#include "ModifiedBFS.h"
+#include "Graph.h"
 
-bool haveKey(const std::string &key, const std::vector<std::string> &keys)
-{
+
+
+//using namespace std;
+
+
+bool haveKey(const std::string &key, const std::vector<std::string> &keys);
+/*{
 	int countOfKeys = keys.size();
 
 	for (int a = 0; a < countOfKeys; a++)
@@ -11,11 +25,10 @@ bool haveKey(const std::string &key, const std::vector<std::string> &keys)
 		if (key == "" || keys[a] == key) return true;
 	}
 	return false;
-}
+}*/
 
-
-void PrintVertex(std::ostream &output, const Vertex &vertex, bool reachable)
-{
+void PrintVertex(std::ostream &output, const Vertex &vertex, bool reachable);
+/*{
 	//print edges
 	for (const Edge &edge : vertex.edges)
 	{
@@ -54,19 +67,24 @@ void PrintVertex(std::ostream &output, const Vertex &vertex, bool reachable)
 
 		output << "];\n";
 	}
-}
+}*/
 
-void CheckPassableVertixes(Graph &graph, std::string start)
-{
+
+
+
+void ModifiedRecursiveTreeBFS(Graph &graph, Vertex &v_start, std::vector<std::string> keys);
+
+void CheckPassableVertixes(Graph &graph, std::string start);
+/*{
 	std::vector<std::string> keys;
 	keys.push_back("");
 
 	ModifiedRecursiveTreeBFS(graph, graph[start], keys);
-}
+}*/
+void _PrintGraph(const Graph &graph, std::ostream &output); //write to file
 
-
-void PrintGraph(const Graph &graph, const std::string &outputName)
-{
+void PrintGraph(const Graph &graph, const std::string &outputName);
+/*{
 	if (outputName != "")
 	{
 		std::ofstream write(outputName);
@@ -80,23 +98,22 @@ void PrintGraph(const Graph &graph, const std::string &outputName)
 	}
 	else
 		_PrintGraph(graph, std::cout);	//write to console
+}*/
 
-}
-
-void _PrintGraph(const Graph &graph, std::ostream &output)
-{
+void _PrintGraph(const Graph &graph, std::ostream &output);
+/*{
 	output << "digraph Map {\n";
 	for (const auto &vertex : graph)
 	{
 		PrintVertex(output, vertex.second, vertex.second.used);
 	}
 	output << '}';
-}
+}*/
 
 
 
-void ModifiedRecursiveTreeBFS(Graph &graph, Vertex &v_start, std::vector<std::string> keys)
-{
+void ModifiedRecursiveTreeBFS(Graph &graph, Vertex &v_start, std::vector<std::string> keys);
+/*{
 	std::unordered_map<std::string, bool> used;
 
 	for (auto &vertex : graph)
@@ -116,10 +133,10 @@ void ModifiedRecursiveTreeBFS(Graph &graph, Vertex &v_start, std::vector<std::st
 		que.pop();
 
 		if (used[current->name]) continue;
-
-		current->used = true;
+		
+		current->used = true; 
 		used[current->name] = true;
-
+		
 
 		//for each key we find
 		int keysInVertexCount = current->keys.size();
@@ -145,4 +162,9 @@ void ModifiedRecursiveTreeBFS(Graph &graph, Vertex &v_start, std::vector<std::st
 			}
 		}
 	}
-}
+}*/
+
+
+
+
+#endif // !_MODIFIED_BFS_

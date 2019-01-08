@@ -1,17 +1,27 @@
-#include <iostream>
+#ifndef _FILE_READER_
+#define _FILE_READER_
+
+#include <string>
+#include <vector>
 #include <fstream>
+#include <sstream>
+#include <iostream>
 
-#include "FileReader.h"
+#include "Graph.h"
 
 
-bool Read(const std::string &name, Graph &graph)
+void loadOneRow(std::stringstream& ss, std::string& zone1, std::string& zone2, std::string& key);
+void Read(const std::string &name, Graph &graph);
+
+/*
+void Read(const std::string &name, Graph &graph)
 {
 	std::ifstream read(name);
 
 	if (!read.good())
 	{
 		std::cerr << "Could not open file.\n";
-		return false;
+		return;
 	}
 
 	std::string begin;
@@ -34,7 +44,7 @@ bool Read(const std::string &name, Graph &graph)
 			ss >> begin;
 			readingKeys = true;
 		}
-
+		
 		if (readingKeys == false)
 		{
 			loadOneRow(ss, begin, destination, keyName);
@@ -62,12 +72,14 @@ bool Read(const std::string &name, Graph &graph)
 		}
 	}
 	read.close();
-	return true;
-}
+}*/
 
 
-void loadOneRow(std::stringstream& ss, std::string& zone1,
-	std::string& zone2, std::string& key)
+
+
+/*
+void loadOneRow(std::stringstream& ss, std::string& zone1, 
+				std::string& zone2, std::string& key)
 {
 	std::string tmp;
 
@@ -110,4 +122,6 @@ void loadOneRow(std::stringstream& ss, std::string& zone1,
 
 	if (!ss)
 		ss.clear();
-}
+}*/
+
+#endif // !_FILE_READER_

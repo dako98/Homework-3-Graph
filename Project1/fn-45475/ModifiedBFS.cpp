@@ -1,5 +1,3 @@
-#include <queue>
-
 #include "ModifiedBFS.h"
 
 bool haveKey(const std::string &key, const std::vector<std::string> &keys)
